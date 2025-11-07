@@ -8,7 +8,7 @@ import axios from 'axios';
 import UserContext from './UserContext';
 import { POST_USER } from '../types';
 import {Alert, Breadcrumb, Button, Form, Row,Col, Container} from 'react-bootstrap'
-import 'Bootstrap/dist/css/Bootstrap.min.css'
+import 'bootstrap/dist/css/Bootstrap.min.css'
 
 
 const UserState = (props) => {
