@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, Form, Row, Col } from "react-bootstrap";
 import { Link, useLoaderData } from "react-router-dom";
-import.meta.env.VITE_API_URL
+
 
 
 const Participantes = () => {

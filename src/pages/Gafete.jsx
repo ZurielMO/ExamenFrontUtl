@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
 import './Gafete.css'
-import.meta.env.VITE_API_URL
+
 
 const Gafete = () => {
   const {usuario} = useLoaderData();
