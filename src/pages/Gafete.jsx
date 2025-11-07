@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
 import './Gafete.css'
+import.meta.env.VITE_API_URL
 
 const Gafete = () => {
   const {usuario} = useLoaderData();
@@ -81,8 +82,11 @@ const Gafete = () => {
 
 export default Gafete
 
-export const loaderGafete = async ({params}) => {
-    const res = await fetch(`http://localhost:3000/api/participante/${params.id}`);
-    const data = await res.json();
-    return {usuario: data.data};
-}
+export const loaderGafete = async ({ params }) => {
+  const API = import.meta.env.VITE_API_URL;
+
+  const res = await fetch(`${API}/participante/${params.id}`);
+  const data = await res.json();
+
+  return { usuario: data.data };
+};

@@ -26,7 +26,7 @@ const UserState = (props) => {
     const postUser = async (nombre, apellidoPaterno, apellidoMaterno, email, usuarioTwitter, ocupacion, avatar) => {
   try {
     const res = await axios.post(
-      "http://localhost:3000/api/registro",
+      `${import.meta.env.VITE_API_URL}/registro`,
       {
         usuario: {
           nombre,

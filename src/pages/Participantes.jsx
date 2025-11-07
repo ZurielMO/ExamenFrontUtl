@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Card, Form, Row, Col } from "react-bootstrap";
 import { Link, useLoaderData } from "react-router-dom";
+import.meta.env.VITE_API_URL
+
 
 const Participantes = () => {
   const { participantes, buscado } = useLoaderData();
@@ -84,19 +86,17 @@ export default Participantes;
 
 export const loaderParticipantes = async ({ params, request }) => {
   const url = new URL(request.url);
-  const query = url.searchParams.get("search"); // parámetro de búsqueda
+  const query = url.searchParams.get("search");
 
-  // API 1: todos los participantes
-  const res1 = await fetch("http://localhost:3000/api/listado");
+  const API = import.meta.env.VITE_API_URL; 
+
+  const res1 = await fetch(`${API}/listado`);
   const data1 = await res1.json();
 
   let resultadoBusqueda = null;
 
-  // API 2: búsqueda solo si hay query
   if (query) {
-    const res2 = await fetch(
-      `http://localhost:3000/api/listadoBusqueda?q=${query}`
-    );
+    const res2 = await fetch(`${API}/listadoBusqueda?q=${query}`);
     const data2 = await res2.json();
     resultadoBusqueda = data2.data;
   }
