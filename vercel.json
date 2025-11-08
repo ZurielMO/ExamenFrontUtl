@@ -1,23 +1,17 @@
 {
-    "rewrites": [
+    "builds": [
         {
-            "source": "/",
-            "destination": "/index.html"
+            "src": "dist/**/*",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "handle": "filesystem"
         },
         {
-            "source": "/index",
-            "destination": "/index.html"
-        },
-        {
-            "source": "/(.*)",
-            "has": [
-                {
-                    "type": "header",
-                    "key": "accept",
-                    "value": "text/html"
-                }
-            ],
-            "destination": "/index.html"
+            "src": "/((?!assets|android|ios|windows11|manifest|registerSW|logoUtl|favicon|robots).*)",
+            "dest": "/index.html"
         }
     ]
 }
