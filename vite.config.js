@@ -8,6 +8,11 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
+      workbox: {
+        globDirectory: 'dist/',
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        navigateFallback: '/index.html',
+      },
       devOptions: {
         enabled: true,
       },
