@@ -1,17 +1,10 @@
 {
-    "builds": [
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist",
+    "rewrites": [
         {
-            "src": "dist/**/*",
-            "use": "@vercel/static"
-        }
-    ],
-    "routes": [
-        {
-            "handle": "filesystem"
-        },
-        {
-            "src": "/((?!assets|android|ios|windows11|manifest|registerSW|logoUtl|favicon|robots).*)",
-            "dest": "/index.html"
+            "source": "/((?!assets|android|ios|windows11|manifest|registerSW|logoUtl|favicon|robots).*)",
+            "destination": "/index.html"
         }
     ]
 }
